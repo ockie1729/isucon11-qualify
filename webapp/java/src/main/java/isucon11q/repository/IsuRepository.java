@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Blob;
 import java.util.List;
 
 @Repository
@@ -20,6 +21,12 @@ public class IsuRepository {
         Isu isu = new Isu();
         isu.setId(rs.getInt("id"));
         isu.setJiaIsuUUID(rs.getString("jia_isu_uuid"));
+        isu.setName(rs.getString("name"));
+        //isu.setImage(rs.getBlob("image"));
+        isu.setCharacter(rs.getString("character"));
+        isu.setJiaUserID(rs.getString("jia_user_id"));
+        //isu.setCreatedAt(rs.getDate("created_at"));
+        //isu.setUpdatedAt(rs.getDate("updated_at"));
         return isu;
     };
 

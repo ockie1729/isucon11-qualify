@@ -1,13 +1,14 @@
 package isucon11q.model;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.time.LocalDateTime;
 
 public class Isu implements Serializable {
     private Integer id;
     private String jiaIsuUUID;
     private String name;
-    private byte[] image;
+    //private Blob image;
     private String character;
     private String jiaUserID;
     private LocalDateTime createdAt;
@@ -29,11 +30,11 @@ public class Isu implements Serializable {
         this.name = name;
     }
 
-//    public byte[] getImage() {
+//    public Blob getImage() {
 //        return image;
 //    }
 //
-//    public void setImage(byte[] image) {
+//    public void setImage(Blob image) {
 //        this.image = image;
 //    }
 

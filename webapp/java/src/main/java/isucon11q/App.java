@@ -24,8 +24,8 @@ public class App {
 	IsuRepository isuRepository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	String hello() {
+	List<Isu> hello() {
 		List<Isu> isuList = isuRepository.findById(1);
-		return "hello! from isucon11q: first isu uuid:" + isuList.get(0).getJiaIsuUUID();
+		return isuList;
 	}
 }

@@ -1,8 +1,10 @@
+server:
+  port: 3000
 spring:
   datasource:
-    password: ${ISUCON11Q_PASSWORD}
-    username: ${ISUCON11Q_USERNAME}
-    url: jdbc:mysql://localhost:3306/isucon11?useUnicode=true&characterEncoding=utf8
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASS}
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DBNAME}?useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver
     sql-script-encoding: UTF-8
     initialize: false

@@ -85,14 +85,19 @@ public class App {
 		return new GetMeResponse(jiaUserID);
 	}
 
-	// GET /
-	// tmpなエンドポイント
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	// GET /tmp
+	// FIXME tmpなエンドポイント
+	@RequestMapping(value = "/tmp", method = RequestMethod.GET)
 	List<Isu> hello() {
 		List<Isu> isuList = isuRepository.findById(1);
 		return isuList;
 	}
 	
+	@RequestMapping(value = "/", produces = MediaType.TEXT_HTML_VALUE)
+	public Resource getIndex() {
+		return new FileSystemResource(frontEndContentsPath + "/index.html");
+	}
+
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	@ExceptionHandler(Unauthorized.class)
 	String unauthorized() {

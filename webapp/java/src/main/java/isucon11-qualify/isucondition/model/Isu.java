@@ -1,10 +1,8 @@
-package isucon11q.model;
+package isucondition.model;
 
-import java.io.Serializable;
-import java.sql.Blob;
 import java.time.LocalDateTime;
 
-public class Isu implements Serializable {
+public class Isu {
     private Integer id;
     private String jiaIsuUUID;
     private String name;

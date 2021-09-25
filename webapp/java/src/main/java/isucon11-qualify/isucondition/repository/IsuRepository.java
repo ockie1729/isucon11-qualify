@@ -1,6 +1,6 @@
-package isucon11q.repository;
+package isucondition.repository;
 
-import isucon11q.model.Isu;
+import isucondition.model.Isu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Blob;
 import java.util.List;
 
 @Repository

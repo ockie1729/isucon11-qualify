@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'isucon11-qualify'
+group = 'isucon11_qualify'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 

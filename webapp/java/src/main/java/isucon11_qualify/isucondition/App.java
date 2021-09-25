@@ -1,13 +1,16 @@
-package isucondition;
+package isucon11_qualify.isucondition;
 
-import isucondition.model.Isu;
-import isucondition.model.User;
-import isucondition.repository.IsuRepository;
-import isucondition.repository.UserRepository;
+import isucon11_qualify.isucondition.model.Isu;
+import isucon11_qualify.isucondition.model.User;
+import isucon11_qualify.isucondition.repository.IsuRepository;
+import isucon11_qualify.isucondition.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -20,6 +23,8 @@ public class App {
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
 	}
+
+	public static final String frontEndContentsPath = "../public";
 
 	@Autowired
 	HttpSession session;
@@ -66,7 +71,9 @@ public class App {
     // サインアップ・サインイン
 	@RequestMapping(value = "/api/auth", method = RequestMethod.POST)
 	void postAuthentication() {
-		session.setAttribute("jia_user_id", "isucon");  // FIXME
+		// FIXME 本来はここでJWTの正しさを検証する
+
+		session.setAttribute("jia_user_id", "isucon");  // FIXME 現状どんな場合もisuconでログイン出来るようにしている
 	}
 
 	// GET /api/user/me
@@ -85,7 +92,7 @@ public class App {
 		List<Isu> isuList = isuRepository.findById(1);
 		return isuList;
 	}
-
+	
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	@ExceptionHandler(Unauthorized.class)
 	String unauthorized() {

@@ -1,6 +1,6 @@
-package isucondition.repository;
+package isucon11_qualify.isucondition.repository;
 
-import isucondition.model.Isu;
+import isucon11_qualify.isucondition.model.Isu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

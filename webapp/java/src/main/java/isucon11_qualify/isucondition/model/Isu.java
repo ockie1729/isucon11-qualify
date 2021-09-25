@@ -1,4 +1,4 @@
-package isucondition.model;
+package isucon11_qualify.isucondition.model;
 
 import java.time.LocalDateTime;
 

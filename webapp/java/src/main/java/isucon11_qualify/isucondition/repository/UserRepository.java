@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,5 +30,13 @@ public class UserRepository {
                 jiaUserId);
         return jdbcTemplate.query("SELECT * FROM user WHERE jia_user_id = :jia_user_id",
                 source, rowMapper);
+    }
+
+    @Transactional
+    public void insert(String jiaUserId) {
+        SqlParameterSource source = new MapSqlParameterSource()
+                .addValue("jia_user_id", jiaUserId);
+        jdbcTemplate.update("INSERT IGNORE INTO user (`jia_user_id`) VALUES (:jia_user_id)",
+                source);
     }
 }
